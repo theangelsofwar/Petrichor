@@ -1,4 +1,5 @@
 
+import React, { useState } from 'react';
 
 
 function Form() {
@@ -9,9 +10,13 @@ function Form() {
     localStorage.setItem('formData', account);
   });
 
+  //status account detail
   const [accountDetail, setAccountDetail] = useState('Active');
 
-  
+  useEffect(function updateStatus() {
+    document.title = accountName + '' + accountDetail;
+  });
+
 
 
   return(
