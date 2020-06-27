@@ -1,7 +1,16 @@
-import React from 'react';
-import { useState } from 'react-hooks';
+import React, { useState } from 'react';
+import ApolloClient from 'apollo-boost';
+import Cookies from 'js-cookie';
+import { BrowserRouter as Router, Route } from 'react-router-dom'; 
 import logo from './logo.svg';
 import './App.css';
+
+import Particles from 'react-particles-js';
+
+//initiate Apollo Client to a single endpoint
+const client = new ApolloClient({
+  ur: '/graphql'
+});
 
 function App() {
   //flame count initializes to zero on user
@@ -15,7 +24,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <button onClick={() => setFlame(flame+1)}>
-        New Flame
+        Set New Flame
       </button>
     </div>
   );
