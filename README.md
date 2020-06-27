@@ -16,18 +16,26 @@ Timer- slow down the clock
 
 - Collect Flames
 
-
+cd petrichor
+npm start
 
 Folder Structure:
-- candidate
+- petrichor
 - server
 
 
 
+
+
 Phase I.
-- 
+- dashboard features: 
+- product cards(react-product-card)
+- d3 tree
+- server side rendering(SSR)
 
 
 
 Phase 2.
+- checkout cart/stripe to ECOMM portion
 - A/B Testing Library for React
+
