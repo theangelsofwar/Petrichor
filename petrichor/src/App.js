@@ -15,7 +15,7 @@ const client = new ApolloClient({
 function App() {
   //flame count initializes to zero on user
   const [flame, setFlame] = useState(0);
-
+  
 
 
   return (

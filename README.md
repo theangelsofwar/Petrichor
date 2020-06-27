@@ -25,8 +25,6 @@ Folder Structure:
 
 
 
-
-
 Phase I.
 - dashboard features: 
 - product cards(react-product-card)
@@ -39,3 +37,39 @@ Phase 2.
 - checkout cart/stripe to ECOMM portion
 - A/B Testing Library for React
 
+
+
+
+Key Deps:
+- graphql
+- apollo-server
+- apollo-boost
+
+
+
+npm i eslint-plugin-react-hooks
+
+
+Base:
+npx create-react-app petrichor
+
+
+
+Features:
+
+Sign-in Capabilities:
+- gmail OAuth
+- facebook OAuth
+
+
+
+API Client Use Cases:
+- Instagram API
+- Pinterest API
+- Tumblr API
+- Spotify API
+
+API Integrations:
+- paypal
+- stripe
+- shopify

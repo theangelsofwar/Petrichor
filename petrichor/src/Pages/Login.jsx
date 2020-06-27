@@ -6,7 +6,7 @@ function Login() {
 
   return (
     <div className='login' id='login'>
-
+    
     </div>
   )
 }
