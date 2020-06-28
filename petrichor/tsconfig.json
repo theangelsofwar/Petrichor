@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-      "target": "es5",
+      "target": "es6",
       "module": "commonjs",
-      "allowJs": true,
       "jsx": "react",
       "rootDir": "./src",
-      "strict": true,
-      "noImplicitAny": false,
+      "outDir": "./build/",
+      "sourceMap": true,
+      "allowJs": true,
+      "noImplicitAny": true,
       "strictNullChecks": true,
       "strictFunctionTypes": true,
       "strictBindCallApply": true,
@@ -20,5 +21,6 @@
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true
-  }
+    }, 
+  "include": ["./src/**/*"]
 }
