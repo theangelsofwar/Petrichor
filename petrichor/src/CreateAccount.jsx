@@ -68,12 +68,31 @@ const CreateAccount = (props) => {
   });
 
 
-
   return(
     <div className='form' id='form'>
       <h2> Petrichor </h2>
       <p> Create an Experience </p>
       <form onSubmit={createUser}>
+      <label for="username" translate-context="Label" translate> </label>
+      <input 
+        type="text"
+        id="loginUsername"
+        name="username"
+        requiredplacehold="Username"
+        onChange={handleUserChange}
+      />
+      <br />
+      <label for="password" translate-context="Password"  translate> </label>
+      <input 
+        type="password"
+        id="loginPassword"
+        name="password"
+        required
+        placeholder="Password"
+        onChange={handlePasswordChange}
+      />
+      <label for="confirmPassword" translate-context="Password" translate> </label>
+      
       </form>
     </div>
   )
