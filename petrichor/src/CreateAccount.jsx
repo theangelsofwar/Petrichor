@@ -92,10 +92,19 @@ const CreateAccount = (props) => {
         onChange={handlePasswordChange}
       />
       <label for="confirmPassword" translate-context="Password" translate> </label>
-      
+      <input 
+        type="password"
+        id="loginPassword"
+        name="password"
+        required
+        placeholder="Confirm Password"
+        onChange={handleConfirmPasswordChange}
+      />
+      <br />
+      <input type="submit" id="loginSubmitButton" value="Create Account" />
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default CreateAccount;
