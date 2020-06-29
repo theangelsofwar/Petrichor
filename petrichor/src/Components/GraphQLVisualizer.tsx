@@ -5,10 +5,41 @@ interface IProps {
   results: string[],
 }
 
-
-
 const traverse = (obj: any) => {
+  if(typeof obj !== 'object') {
+    return [{ name: obj }];
+  }
+  const arr: any[] = [];
+  const keys = Object.keys(obj);
+  for(let i=0; i < keys.length; i++) {
+    const tempObj = {} as any;
+    tempObj.children = traverse(obj[keys[i]]);
+    arr.push(tempObj);
+  }
+  return arr;
+}
 
+
+const svgSquare = {
+  "shape":"circle",
+  "shapeProps": {
+    "r": 50
+  },
+  "Translate X": 443.075,
+  "Translate Y": 410.5,
+  "Initial Depth": 1,
+  "Scale Extent": {
+    "Min": 0.1,
+    "Max": 1,
+  },
+  "Node size": {
+    "X": 152,
+    "Y": 156,
+  },
+  "Node separation": {
+    "Siblings": 1,
+    "Non-Siblings": 0
+  }
 }
 
 
