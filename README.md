@@ -77,3 +77,8 @@ API Integrations:
 
 
 CRA
+
+
+Next Up: 
+Analytics Shopify Dashboard Design DI/DX Friendly
+Admin Friendly/Analytics Shopify Client
