@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Client from 'shopify-buy';
 
-
-const ShopContext = useContext();
+const ShopContext = React.createContext();
 
 const client = Client.buildClient({
   storefrontAccesstoken: "dd4d4dc146542ba7763305d71d1b3d38",
