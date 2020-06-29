@@ -62,13 +62,70 @@ const Cart = () => {
                 Droplet is Empty
               </Text>
             </Col>
-          </Row>
+          </Row> 
+          : 
+          <>
+            {checkout.lineItems && checkout.lineItems.map(wave => (
+              <Row 
+                key={wave.id} 
+                p={{ 
+                  t: "5px" 
+                }}>
+                  <Col>
+                    <Div 
+                      bgImg={wave.variant.image.src} 
+                      bgSize="cover" 
+                      bgPos="center" 
+                      h="5rem" 
+                      w="4rem"
+                    />
+                  </Col>
+                  <Col>
+                    <Text>{wave.title}</Text>
+                    <Text>{wave.variant.title}</Text>
+                    <Text>{wave.quantity}</Text>
+                  </Col>
+                  <Col>
+                    <Text>{wave.variant.price}</Text>
+                  </Col>
+              </Row>
+            ))}
+            </>
           }
+        </Row>
+        <Row 
+          border={{ 
+            t: '1px solid'
+          }} 
+          p="0.7rem" 
+          borderColor="gray300" 
+        >
+          <Anchor 
+            w="100%" 
+            href={checkout.webUrl} 
+            target=")blank" 
+            rel="noopener noreferrer"
+          >
+            <Button 
+              w="100%" 
+              rounded="0" 
+              bg="black500" 
+              shadow="2" 
+              hoverShadow="3" 
+              m={{
+                t: '1rem'
+              }}
+            >
+              Checkout
+            </Button>
+          </Anchor>
         </Row>
         </Container>
       </SideDrawer>
     )
   }
+
+  return null;
 }
 
 export default Cart;
