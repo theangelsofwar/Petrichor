@@ -74,11 +74,14 @@ API Integrations:
 - stripe
 - shopify
 
+npx create-react-app --template typescript
 
-
-CRA
+Key Dependencies:
+- @shopify/polaris 
+- graphql-tag
 
 
 Next Up: 
+Environment
 Analytics Shopify Dashboard Design DI/DX Friendly
 Admin Friendly/Analytics Shopify Client
