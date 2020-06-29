@@ -1,6 +1,10 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extnds: [
+  extends: [
+    'typescript',
+    'typescript/react',
+    'typescript/prettier',
+    'typescript/prettier-react',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',
@@ -14,11 +18,15 @@ module.exports = {
     },
   },
   rules: {
-
+    "@typescript-eslint/explicit-function-return-type": "off"
   },
   settings: {
     react: {
       version: 'detect',
     },
   },
+  env: {
+    browser: true,
+    node: true
+  }
 };
