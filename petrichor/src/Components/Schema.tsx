@@ -3,12 +3,12 @@ import ReactJson from 'react-json-view';
 import introspectionQuery from '../Util/itrospectionQuery';
 
 
-interface Props {
+interface IProps {
   url: string,
   queries: object[],
 }
 
-const Schema: React.FC<Props> = ({ url, queries }) => {
+const Schema: React.FC<IProps> = ({ url, queries }) => {
   const [schema, updateSchema] = React.useState({});
 
 

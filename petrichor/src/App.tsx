@@ -1,7 +1,10 @@
 import * as React from 'react';
-import ApolloClient from 'apollo-boost';
-
+import { Provider } from '@shopify/app-bridge-react';
 import Cookies from 'js-cookie';
+import '@shopify/polaris/styles.css';
+import translations from '@shopify/polaris/locales/en.json';
+import ApolloClient from 'apollo-boost';
+import { AppProvider } from '@shopify/polaris';
 import { BrowserRouter as Router, Route } from 'react-router-dom'; 
 import logo from './logo.svg';
 import './App.css';
@@ -13,14 +16,23 @@ import Particles from 'react-particles-js';
 import Dashboard from './Containers/Dashboard';
 //initiate Apollo Client to a single endpoint
 const client = new ApolloClient({
-  url: '/graphql'
+  fetchOptions: {
+    credentials: 'include',
+  },
 });
 
-const App: React.FC = () => {
+interface IProps {
+  props: any,
+}
+
+const App: React.FC = ({ props }: IProps) => {
   //flame count initializes to zero on user
   const [flame, setFlame] = useState(0);
-  
-
+  const config = { 
+    apiKey: process.env.SHOPIFY_API_KEY, 
+    shopOrigin: Cookies.get("shopOrigin"),
+    forceRedirect: true
+  }
   const [schemaStatus, updateSchemaStatus] = React.useState<boolean>(false);
   const [queries, updateQueries] = React.useState<Array<object>>([]);
   const [url, updateUrl] = React.useState<string>("");
@@ -43,6 +55,13 @@ const App: React.FC = () => {
   }
   return (
     <React.Fragment>
+      <Provider>
+        <AppProvider>
+          <ApolloProvider>
+            <Dashboard name='' username='' colorPreference='aliceblue'/>
+          </ApolloProvider>
+        </AppProvider>
+      </Provider>
       <div className="App">
       <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
@@ -51,7 +70,6 @@ const App: React.FC = () => {
       <button onClick={() => setFlame(flame+1)}>
         Set New Flame
       </button>
-      <Dashboard name='' username='' colorPreference='aliceblue'/>
     </div>
     </React.Fragment>
   );
