@@ -28,7 +28,7 @@ const handle = app.getRequestHandler();
     server.get('*', (req, res) => handle(req, res));
 
     server.listen(port, () => {
-      console.log(`Read on https://localhost:${port}`); //eslint-disable-line
+      console.log(`Server listening on on https://localhost:${port}`); //eslint-disable-line
     });
   } catch(error) {
     console.log(error.stack); //eslint-disable-line
