@@ -20,9 +20,6 @@ const PolarisLayout: React.FC<IProps> = ({ discount, enabled}) => {
   const [disc, setDiscount] = useState('10%');
   const [able, setAble] = useState(false);
 
-
-
-  
   function handleSubmit() {
     setDiscount(disc);
   }
@@ -71,8 +68,5 @@ const PolarisLayout: React.FC<IProps> = ({ discount, enabled}) => {
     </Page>
   );
 };
-
-
-
 
 export default PolarisLayout;
