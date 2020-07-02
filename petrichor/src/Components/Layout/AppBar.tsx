@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/Container';
 import Container from '@material-ui/core/Toolbar';
@@ -75,6 +75,131 @@ function PrimaryAppBar() {
 
 
   const theme = useTheme();
-  
+  const classes = useStyles(theme);
+
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+
+  function handleMobileMenuClose() {
+    setMobileMoreAnchorEl(null);
+  }
+
+  function handleMobileMenOpen() {
+    setMobileMoreAnchorEl(event.currentTarget);
+  }
+
+
+  const renderMobileMenu = (
+    <Menu 
+      anchorEl={mobileMoreAnchorEl} 
+      anchorOrigin={{ 
+        vertical: 'top', 
+        horizontal: 'right' 
+      }} 
+      transformOrigin={{
+        vertical: 'top', 
+        horizontal: 'right'
+      }} 
+      open={isMobileMenuOpen} 
+      onClose={handleMobileMenuClose}
+    >
+      <MenuItem 
+        onClick={() => utilities.link({ 
+          path: '/'
+        })}
+      >
+        Home
+      </MenuItem>
+      <MenuItem 
+        onClick={() => utilities.link({
+            path: '/products'
+         })}
+      >
+        Products
+      </MenuItem>
+   
+    </Menu>
+  ); 
+
+  return (
+    <div className={classes.grow}>
+      <AppBar position="fixed">
+        <Container>
+          <Toolbar disableGutters>
+            <Typography 
+              onClick={() => utilities.link({
+                path: '/'
+              })}
+              className={classes.title} 
+              variant="h6" 
+              noWrap
+            >
+              Commerce Square
+            </Typography>
+
+            <div className={classes.grow} />
+            <div className={classes.sectionDesktop}>
+              <Button 
+                color="inherit" 
+                onClick={() => utilities.link({
+                  path: '/'
+                })}
+              >
+                Home
+              </Button>
+              <Button 
+                color="inherit"
+                onClick={() => utilities.link({
+                  path: '/products'
+                })}
+              >
+                Aire
+              </Button>
+
+              <IconButton 
+                color="inherit" 
+                onClick={() => utilities.link({ 
+                  path: '/cart'
+                })}
+              >
+                <Badge 
+                  badgeContent={totalQuantity} 
+                  color="secondary"
+                >
+                  <ShoppingBasket />
+                </Badge>
+              </IconButton>
+            </div>
+
+            <div className={classes.sectionMobile}>
+              <IconButton 
+                aria-haspopup="true" 
+                onClick={handleMobileMenOpen} 
+                color="inherit"
+              >
+                <MoreIcon />
+              </IconButton>
+              <IconButton 
+                color="inherit" 
+                onClick={() => utilities.link({
+                  path: '/cart'
+                })}
+              >
+                <Badge 
+                  badgeContent={totalQuantity} 
+                  color="secondary"
+                >
+                  <ShoppingBasket />
+                </Badge>
+              </IconButton>
+            </div>
+          </Toolbar>
+        </Container>
+      </AppBar>
+      {renderMobileMenu}
+    </div>
+  )
 }
 
+export default PrimaryAppBar;
