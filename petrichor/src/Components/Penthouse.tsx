@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 
-function Home() {
+function Penthouse() {
   const theme = useTheme();
   const classes = useStyles(theme);
 
@@ -42,4 +42,4 @@ function Home() {
   );
 }
 //wrap withLayout(Home)
-export default Home;
+export default Penthouse;
