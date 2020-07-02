@@ -3,7 +3,6 @@ import { Div, SideDrawer, Text, Row, Col, Anchor, Button, Container, Icon } from
 import { ShopContext } from '../context/shopContext';
 
 
-
 import Head from 'next/head'; 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -17,11 +16,78 @@ import CircularProgerss from '@material-ui/core/CircularProgress';
 import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
 // import Button  from '@material-ui/core/Button';
-import DeleteIcon from '@material-ui/core/DeleteIcon';
+import DeleteIcon from '@material-ui/core/Delete';
+// import services from '../../services';
+// import { CheckoutState } from '../../store/checkout.slice';
+// import withLayout from '../../hocs/withLayout';
 
+//model other CEOs and Leaders
+
+//reprogram, recondition your mind and your worth
+
+const useStyles = makeStyles((theme: Theme) => 
+  createStyles({
+    root: {
+      width: '100%'
+    },
+    paper: {
+      marginTop: theme.spacing(3),
+      width: '100%',
+      overflowX: 'auto',
+      marginBottom: theme.spacing(2)
+    },
+    table: {
+      minWidth: 650
+    },
+    quantityInput: {
+      maxWidth: 45
+    },
+    emptyCart: {
+      textAlign: 'center'
+    },
+    checkout: {
+      // textAlign: 'center
+    },
+    loader: {
+      display: 'block',
+      width: '100%',
+      textAlign: 'center',
+      marginBottom: 33
+    }
+  })
+);
+  
 
 const Cart = () => {
   const { isCartOpen, closeCart, checkout } = useContext(ShopContext);
+
+  const dispatch = useDispatch();
+  // const { loading, error, data }: CheckoutState = useSelector(({ checkout }) => checkout);
+
+  function _updateQuantity(variantId: string, quantity: number) {
+    clearTimeout(timeoutID);
+    timeoutID = setTimeout(() => dispatch(services.checkout.updateQuantity(variantId, quantity)), 2000)
+  }
+
+  if (loading) {
+    return (
+      <div className={classes.loader}>
+        <CircularProgress size={24} />
+      </div>
+
+    )
+  }
+
+  if(error) {
+    return <p> Error: {error.message} </p>;
+  }
+
+  if(data === null) {
+    //cart is empty
+  }
+
+  const theme = useTheme();
+
 
   if(checkout.lineItems) {
     return (
@@ -146,4 +212,6 @@ const Cart = () => {
   return null;
 }
 
+
+//wrap HOC withLayout(Cart)
 export default Cart;
