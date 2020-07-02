@@ -2,6 +2,24 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Div, SideDrawer, Text, Row, Col, Anchor, Button, Container, Icon } from 'atomize';
 import { ShopContext } from '../context/shopContext';
 
+
+
+import Head from 'next/head'; 
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core';
+import Paper from '@material-ui/core/Paper';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { createStyles, Theme, makeStyles, useTheme } from '@material-ui/core/styles';
+import CircularProgerss from '@material-ui/core/CircularProgress';
+import TextField from '@material-ui/core/TextField';
+import IconButton from '@material-ui/core/IconButton';
+// import Button  from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/core/DeleteIcon';
+
+
 const Cart = () => {
   const { isCartOpen, closeCart, checkout } = useContext(ShopContext);
 
